@@ -1,0 +1,42 @@
+version: "3.4"
+services:
+    worker_1:
+      build:
+        context: .
+      image: julia-tdl
+      networks:
+        - backend
+
+    worker_2:
+      image: julia-tdl
+      depends_on: 
+        - worker_1
+      networks:
+        - backend
+
+    worker_3:
+      image: julia-tdl
+      depends_on: 
+        - worker_1
+      networks:
+        - backend
+
+    worker_4:
+      image: julia-tdl
+      depends_on: 
+        - worker_1
+
+    lead:
+      image: julia-tdl
+      networks:
+        - backend
+      depends_on:
+        - worker_1
+        - worker_2
+        - worker_3
+        - worker_4
+      volumes:
+        - "./.ssh-lead:/root/.ssh"
+
+networks:
+  backend:
