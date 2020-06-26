@@ -6,8 +6,7 @@ services:
       image: julia-tdl
       networks:
         - backend
-      environment: 
-        - HOSTNAME=worker_1
+      hostname: worker_1
 
     worker_2:
       image: julia-tdl
@@ -15,8 +14,7 @@ services:
         - worker_1
       networks:
         - backend
-      environment: 
-        - HOSTNAME=worker_2
+      hostname: worker_2
 
     worker_3:
       image: julia-tdl
@@ -24,8 +22,7 @@ services:
         - worker_1
       networks:
         - backend
-      environment: 
-        - HOSTNAME=worker_3
+      hostname: worker_3
 
     worker_4:
       image: julia-tdl
@@ -33,8 +30,7 @@ services:
         - worker_1
       networks:
         - backend
-      environment: 
-        - HOSTNAME=worker_4
+      hostname: worker_4
 
     lead:
       image: julia-tdl
@@ -42,8 +38,7 @@ services:
         - backend
       ports:
         - "2022:22"
-      environment:
-        - HOSTNAME=lead
+      hostname: lead
       depends_on:
         - worker_1
         - worker_2

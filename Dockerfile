@@ -19,13 +19,13 @@ RUN echo 'root:123456' | chpasswd
 RUN echo "parse_git_branch() { " >> /root/.bash_profile && \
     printf "%s\n" "  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'" >> /root/.bash_profile && \
     echo "}" >> /root/.bash_profile && \
-    printf "%s\n" "export PS1=\"\u@$HOSTNAME \W\[\033[32m\]\\\$(parse_git_branch)\[\033[00m\] \$ \"" >> /root/.bash_profile && \
+    printf "%s\n" "export PS1=\"\u@\h \W\[\033[32m\]\\\$(parse_git_branch)\[\033[00m\] \$ \"" >> /root/.bash_profile && \
     echo "alias ll='ls -latr'" >> /root/.bash_profile
 
 RUN echo "parse_git_branch() { " >> /home/sshuser/.bash_profile && \
     printf "%s\n" "  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'" >> /home/sshuser/.bash_profile && \
     echo "}" >> /home/sshuser/.bash_profile && \
-    printf "%s\n" "export PS1=\"\u@$HOSTNAME \W\[\033[32m\]\\\$(parse_git_branch)\[\033[00m\] \$ \"" >> /home/sshuser/.bash_profile && \
+    printf "%s\n" "export PS1=\"\u@\h \W\[\033[32m\]\\\$(parse_git_branch)\[\033[00m\] \$ \"" >> /home/sshuser/.bash_profile && \
     echo "alias ll='ls -latr'" >> /home/sshuser/.bash_profile
 
 #remove leftovers of apt
