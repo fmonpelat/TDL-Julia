@@ -1,4 +1,4 @@
-version: "3.4"
+version: "3"
 services:
     worker_1:
       build:
@@ -6,6 +6,8 @@ services:
       image: julia-tdl
       networks:
         - backend
+      environment: 
+        - HOSTNAME=worker_1
 
     worker_2:
       image: julia-tdl
@@ -13,6 +15,8 @@ services:
         - worker_1
       networks:
         - backend
+      environment: 
+        - HOSTNAME=worker_2
 
     worker_3:
       image: julia-tdl
@@ -20,16 +24,26 @@ services:
         - worker_1
       networks:
         - backend
+      environment: 
+        - HOSTNAME=worker_3
 
     worker_4:
       image: julia-tdl
       depends_on: 
         - worker_1
+      networks:
+        - backend
+      environment: 
+        - HOSTNAME=worker_4
 
     lead:
       image: julia-tdl
       networks:
         - backend
+      ports:
+        - "2022:22"
+      environment:
+        - HOSTNAME=lead
       depends_on:
         - worker_1
         - worker_2
@@ -37,6 +51,7 @@ services:
         - worker_4
       volumes:
         - "./.ssh-lead:/root/.ssh"
-
+        - "./workdir:/root/workdir"
+        
 networks:
   backend:
