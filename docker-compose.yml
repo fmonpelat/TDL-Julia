@@ -7,6 +7,8 @@ services:
       networks:
         - backend
       hostname: worker_1
+      volumes:
+        - "./workdir:/home/montecarlo/workdir"
 
     worker_2:
       image: julia-tdl
@@ -15,6 +17,8 @@ services:
       networks:
         - backend
       hostname: worker_2
+      volumes:
+        - "./workdir:/home/montecarlo/workdir"
 
     worker_3:
       image: julia-tdl
@@ -23,6 +27,8 @@ services:
       networks:
         - backend
       hostname: worker_3
+      volumes:
+        - "./workdir:/home/montecarlo/workdir"
 
     worker_4:
       image: julia-tdl
@@ -31,6 +37,8 @@ services:
       networks:
         - backend
       hostname: worker_4
+      volumes:
+        - "./workdir:/home/montecarlo/workdir"
 
     lead:
       image: julia-tdl
@@ -46,7 +54,8 @@ services:
         - worker_4
       volumes:
         - "./.ssh-lead:/root/.ssh"
-        - "./workdir:/root/workdir"
+        - "./.ssh-lead:/home/montecarlo/.ssh"
+        - "./workdir:/home/montecarlo/workdir"
         
 networks:
   backend:

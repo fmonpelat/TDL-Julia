@@ -1,1 +1,47 @@
 julia anotations
+
+1. Execute julia:
+root@lead:~/workdir# julia
+               _
+   _       _ _(_)_     |  Documentation: https://docs.julialang.org
+  (_)     | (_) (_)    |
+   _ _   _| |_  __ _   |  Type "?" for help, "]?" for Pkg help.
+  | | | | | | |/ _` |  |
+  | | |_| | | | (_| |  |  Version 1.4.2 (2020-05-23)
+ _/ |\__'_|_|_|\__'_|  |  Official https://julialang.org/ release
+|__/                   |
+
+2. to access repl package manager press ']' key, the following prompt will appear:
+(@v1.4) pkg> 
+
+https://julialang.github.io/Pkg.jl/v1/environments/
+
+3. make enviroment for the default project
+(@v1.4) pkg> activate tutorial
+ Activating new environment at `~/workdir/tutorial/Project.toml`
+
+4. now prompt changes to:
+(tutorial) pkg> 
+(tutorial) pkg> status
+Status `~/workdir/tutorial/Project.toml`
+  (empty environment)
+
+5. return executing 'activate', then press ctrl + c
+(tutorial) pkg> activate
+(@v1.4) pkg> 
+ctrl^c
+julia>
+
+6. make our own enviroment project:
+https://julialang.github.io/Pkg.jl/v1/environments/
+
+julia> mkdir("MonteCarlo")
+julia> cd("MonteCarlo")
+press ']'
+(@v1.4) pkg> activate .
+ Activating new environment at `~/workdir/MonteCarlo/Project.toml`
+
+(MonteCarlo) pkg> st
+Status `~/workdir/MonteCarlo/Project.toml`
+  (empty environment)
+
