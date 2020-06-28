@@ -7,12 +7,28 @@ Lenguaje: Julia
 # Introduccion
 --
 
-# Deployment
---
-se debe ejecutar como:
-```docker-compose -f docker-compose.yml up --build -d```
-luego podremos acceder al contenedor lead:
-```ssh -p 2022 -o "UserKnownHostsFile=/dev/null" -o "StrictHostKeyChecking=no" root@localhost```
+# Docker
+## Getting Started
 
-## Docker
+These instructions will cover usage information and for the docker container 
+
+### Prerequisities
+
+In order to run this container you'll need docker installed.
+
+* [Windows](https://docs.docker.com/windows/started)
+* [OS X](https://docs.docker.com/mac/started/)
+* [Linux](https://docs.docker.com/linux/started/)
+
+## Deployment
 --
+Begin build and deploy with compose:
+```docker-compose -f docker-compose.yml up --build -d```
+
+to access to the lead hostname shell:
+```ssh -p 2022 -o "UserKnownHostsFile=/dev/null" -o "StrictHostKeyChecking=no" root@localhost```
+### Container Credentials
+
+User:root Pass:123456
+
+User:montecarlo (access to workers by publickey)
