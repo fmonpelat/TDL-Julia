@@ -13,10 +13,10 @@ addprocs(workervec; tunnel=true,exename=`/usr/local/julia/bin/julia`,dir=`/home/
 #@everywhere rm("/home/montecarlo/.julia"; recursive=true)
 @everywhere begin
     using Pkg
-    #Pkg.update()
+    Pkg.update()
     Pkg.activate(".")
-    #Pkg.add("PyCall")
-    #Pkg.build("PyCall")
+    Pkg.add("PyCall")
+    Pkg.build("PyCall")
 end
 @everywhere using Distributed
 @everywhere using PyCall
@@ -33,3 +33,5 @@ end
 printHello(2)
 
 x = [@spawnat i printHello(i*10) for i in workers() ]
+
+@spawnat 2 printHello(10)

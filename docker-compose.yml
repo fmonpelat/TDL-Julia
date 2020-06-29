@@ -41,11 +41,14 @@ services:
         - "./workdir:/home/montecarlo/workdir"
 
     lead:
-      image: julia-tdl
+      build:
+        context: .
+        dockerfile: Dockerfile_lead
       networks:
         - backend
       ports:
         - "2022:22"
+        - "8088:8088"
       hostname: lead
       depends_on:
         - worker_1
