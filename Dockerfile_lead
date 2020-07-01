@@ -9,8 +9,6 @@ RUN groupadd $username && useradd -ms /bin/bash -g $username $username
 
 # SSH configuration
 RUN mkdir /var/run/sshd && \
-    sed -ri 's/^#?PermitRootLogin\s+.*/PermitRootLogin yes/' /etc/ssh/sshd_config && \
-    sed -ri 's/UsePAM yes/#UsePAM yes/g' /etc/ssh/sshd_config && \
     mkdir /root/.ssh
 COPY ./sshd_config /etc/ssh/sshd_config
 
@@ -54,6 +52,8 @@ EXPOSE 22 8080
 RUN pip3 install notebook
 RUN mkdir $home/.jupyter && \
     printf "%s\n" "{" "\"NotebookApp\": {" "\"password\": \"sha1:c9183aadb531:e4e37efea59ae84f473e773c8ee4d733fc66075e\"" "} " "}" >> $home/.jupyter/jupyter_notebook_config.json
+
+RUN julia -e 'using Pkg; pkg"add IJulia;build IJulia; precompile"'
 
 RUN /etc/init.d/ssh start
 
