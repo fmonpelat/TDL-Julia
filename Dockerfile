@@ -30,6 +30,7 @@ RUN echo "parse_git_branch() { " >> $home/.bash_profile && \
     echo "alias ll='ls -latr'" >> $home/.bash_profile && \
     echo "alias julia='/usr/local/julia/bin/julia'" >> $home/.bash_profile
 
+
 # Disable on workers fingerprint host checking
 RUN printf "%s\n    %s\n    %s" "Host worker_*" "StrictHostKeyChecking no" "UserKnownHostsFile=/dev/null" >> /etc/ssh/ssh_config
 
