@@ -42,11 +42,12 @@ COPY ./.ssh-lead/id_rsa.pub $home/.ssh/authorized_keys
 COPY ./.ssh-lead/id_rsa.pub /root/.ssh/authorized_keys
 RUN chown $username:$username $home/.ssh/authorized_keys && \
     chmod 600 $home/.ssh/authorized_keys
-
+    
 # Working directory
 WORKDIR /home/montecarlo/workdir
 
 # Expose ssh port to containers
 EXPOSE 22
+
 
 CMD ["/usr/sbin/sshd", "-D"]
