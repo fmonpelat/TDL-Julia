@@ -8,8 +8,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      TAG: $(date +%s)
+      TAG: `date +%s`
     steps:
+      - name: tag echo
+        run: |
+          echo $TAG
       - name: docker login
         env:
           DOCKER_USER: ${{ secrets.DOCKER_USER_FMONPELAT }}
