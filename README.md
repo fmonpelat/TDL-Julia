@@ -1,9 +1,9 @@
 # TDL-Julia
 75.31 - Teoria del Lenguaje FIUBA
 
-![Docker build lead image](https://github.com/fmonpelat/TDL-Julia/workflows/Docker%20build%20lead%20images%20-%20CI/badge.svg?branch=master)
+![Docker build/push lead image](https://github.com/fmonpelat/TDL-Julia/workflows/Docker%20build/push%20lead%20image/badge.svg?branch=master)
 
-![Docker build worker image](https://github.com/fmonpelat/TDL-Julia/workflows/Docker%20build%20worker%20images%20-%20CI/badge.svg?branch=master)
+![Docker build/push worker image](https://github.com/fmonpelat/TDL-Julia/workflows/Docker%20build/push%20worker%20image/badge.svg?branch=master)
 
 # Proyecto Integrador
 Lenguaje: Julia
