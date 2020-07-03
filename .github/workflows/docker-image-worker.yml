@@ -29,3 +29,5 @@ jobs:
       - name: publish to docker hub
         run: |
           docker push $(cat REPONAME)/worker_julia:$(cat TAG)
+          docker tag $(cat REPONAME)/worker_julia:$(cat TAG) $(cat REPONAME)/worker_julia:latest
+          docker push $(cat REPONAME)/worker_julia:$(cat TAG)
