@@ -2,7 +2,10 @@ name: Docker build lead images - CI
 
 on:
   push:
-    branches: [ master ]
+    branches:
+      - master
+    paths:
+      - 'Dockerfile_lead'
 
 jobs:
   build:
