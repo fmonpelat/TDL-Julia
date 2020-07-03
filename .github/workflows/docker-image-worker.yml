@@ -1,0 +1,31 @@
+name: Docker build worker images - CI
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - 'Dockerfile'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v2
+      - name: set tag
+        run: |
+            date +%s > TAG
+            echo "facundomonpelat" > REPONAME
+      - name: docker login
+        env:
+          DOCKER_USER: ${{ secrets.DOCKER_USER_FMONPELAT }}
+          DOCKER_PASS: ${{ secrets.DOCKER_PASS_FMONPELAT }}
+        run: |
+            docker login -u $DOCKER_USER -p $DOCKER_PASS
+      - name: Build the Docker image worker_julia notebook
+        run: |
+              docker build . --file Dockerfile --tag $(cat REPONAME)/worker_julia:$(cat TAG)        
+      - name: publish to docker hub
+        run: |
+          docker push $(cat REPONAME)/worker_julia:$(cat TAG)
