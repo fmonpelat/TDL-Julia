@@ -1,4 +1,4 @@
-name: Docker build worker images - CI
+name: Docker build/push worker image
 
 on:
   push:
