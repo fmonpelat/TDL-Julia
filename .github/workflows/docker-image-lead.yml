@@ -25,4 +25,4 @@ jobs:
               docker build . --file Dockerfile_lead --tag $(cat REPONAME)/lead_notebook:$(cat TAG)        
       - name: publish to docker hub
         run: |
-          docker push lead_notebook:$(cat TAG) $(cat REPONAME)/lead_notebook:$(cat TAG)
+          docker push $(cat REPONAME)/lead_notebook:$(cat TAG)
