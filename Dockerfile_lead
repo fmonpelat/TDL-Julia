@@ -7,7 +7,6 @@ ARG username=montecarlo
 ARG home=/home/$username
 RUN groupadd $username && useradd -ms /bin/bash -g $username $username
 
-
 # SSH configuration
 RUN mkdir /var/run/sshd && \
     mkdir /root/.ssh
