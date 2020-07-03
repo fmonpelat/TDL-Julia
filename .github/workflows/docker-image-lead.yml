@@ -13,6 +13,7 @@ jobs:
     - name: Build the Docker image lead notebook
       run: |
             docker build . --file Dockerfile_lead --tag lead_notebook:$(date +%s)
+            
     - name: Build the Docker image julia workers
       run: |
             docker build . --file Dockerfile --tag worker_julia:$(date +%s)
