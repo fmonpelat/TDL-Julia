@@ -9,6 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
+      - uses: actions/checkout@v2
       - name: set tag
         run: |
             date +%s > TAG
@@ -18,7 +19,6 @@ jobs:
           DOCKER_PASS: ${{ secrets.DOCKER_PASS_FMONPELAT }}
         run: |
             docker login -u $DOCKER_USER -p $DOCKER_PASS
-      - uses: actions/checkout@v2
       - name: Build the Docker image lead notebook
         run: |
               docker build . --file Dockerfile_lead --tag lead_notebook:$(cat TAG)        
