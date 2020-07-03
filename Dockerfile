@@ -9,8 +9,6 @@ RUN groupadd $username && useradd -ms /bin/bash -g $username $username
 
 # SSH configuration
 RUN mkdir /var/run/sshd && \
-    sed -ri 's/^#?PermitRootLogin\s+.*/PermitRootLogin yes/' /etc/ssh/sshd_config && \
-    sed -ri 's/UsePAM yes/#UsePAM yes/g' /etc/ssh/sshd_config && \
     mkdir /root/.ssh
 COPY ./sshd_config /etc/ssh/sshd_config
 
