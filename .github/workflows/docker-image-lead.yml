@@ -1,19 +1,25 @@
-name: Docker build images - CI
+name: Docker build lead images - CI
 
 on:
   push:
     branches: [ master ]
 
 jobs:
-
   build:
     runs-on: ubuntu-latest
+    env:
+      TAG: $(date +%s)
     steps:
-    - uses: actions/checkout@v2
-    - name: Build the Docker image lead notebook
-      run: |
-            docker build . --file Dockerfile_lead --tag lead_notebook:$(date +%s)
-            
-    - name: Build the Docker image julia workers
-      run: |
-            docker build . --file Dockerfile --tag worker_julia:$(date +%s)
+      - name: docker login
+        env:
+          DOCKER_USER: ${{ secrets.DOCKER_USER_FMONPELAT }}
+          DOCKER_PASS: ${{ secrets.DOCKER_PASS_FMONPELAT }}
+        run: |
+            docker login -u $DOCKER_USER -p $DOCKER_PASS
+      - uses: actions/checkout@v2
+      - name: Build the Docker image lead notebook
+        run: |
+              docker build . --file Dockerfile_lead --tag lead_notebook:$TAG        
+      - name: publish to docker hub
+        run: |
+          docker push facundomonpelat/lead_notebook:$TAG
