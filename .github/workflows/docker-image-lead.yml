@@ -29,5 +29,5 @@ jobs:
       - name: publish to docker hub
         run: |
           docker push $(cat REPONAME)/lead_notebook:$(cat TAG)
-          docker tag $(cat REPONAME)/lead_notebook $(cat REPONAME)/lead_notebook:latest
+          docker tag $(cat REPONAME)/lead_notebook:$(cat TAG) $(cat REPONAME)/lead_notebook:latest
           docker push $(cat REPONAME)/lead_notebook:latest
