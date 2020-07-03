@@ -1,4 +1,4 @@
-name: Docker build lead images - CI
+name: Docker build/push lead image
 
 on:
   push:
