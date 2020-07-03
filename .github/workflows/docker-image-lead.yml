@@ -1,0 +1,18 @@
+name: Docker build images - CI
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build the Docker image lead notebook
+      run: |
+            docker build . --file Dockerfile_lead --tag lead_notebook:$(date +%s)
+    - name: Build the Docker image julia workers
+      run: |
+            docker build . --file Dockerfile --tag worker_julia:$(date +%s)
