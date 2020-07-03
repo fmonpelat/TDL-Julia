@@ -13,6 +13,7 @@ jobs:
       - name: set tag
         run: |
             date +%s > TAG
+            echo "facundomonpelat" > REPONAME
       - name: docker login
         env:
           DOCKER_USER: ${{ secrets.DOCKER_USER_FMONPELAT }}
@@ -21,7 +22,7 @@ jobs:
             docker login -u $DOCKER_USER -p $DOCKER_PASS
       - name: Build the Docker image lead notebook
         run: |
-              docker build . --file Dockerfile_lead --tag lead_notebook:$(cat TAG)        
+              docker build . --file Dockerfile_lead --tag $(cat REPONAME)/lead_notebook:$(cat TAG)        
       - name: publish to docker hub
         run: |
-          docker push facundomonpelat/lead_notebook:$(cat TAG)
+          docker push lead_notebook:$(cat TAG) $(cat REPONAME)/lead_notebook:$(cat TAG)
