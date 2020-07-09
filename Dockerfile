@@ -45,6 +45,7 @@ COPY ./.ssh-lead/id_rsa /root/.ssh/id_rsa
 
 RUN chown -R $username:$username $home/.ssh/ && \
     chown -R $username:$username $home/ && \
+    chmod 600 /root/.ssh/id_rsa && \
     chmod 700 $home/.ssh && \
     chmod 600 $home/.ssh/authorized_keys && \
     chmod 600 $home/.ssh/id_rsa
