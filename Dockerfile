@@ -40,7 +40,9 @@ RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 RUN mkdir $home/.ssh
 COPY ./.ssh-lead/id_rsa.pub $home/.ssh/authorized_keys
 COPY ./.ssh-lead/id_rsa.pub /root/.ssh/authorized_keys
-RUN chown $username:$username $home/.ssh/authorized_keys && \
+RUN chown -R $username:$username $home/.ssh/ && \
+    chown -R $username:$username $home/ && \
+    chmod 700 $home/.ssh && \
     chmod 600 $home/.ssh/authorized_keys
     
 # Working directory
