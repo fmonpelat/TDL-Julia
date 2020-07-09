@@ -39,7 +39,10 @@ RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 # copy of ssh keys
 RUN mkdir $home/.ssh
 COPY ./.ssh-lead/id_rsa.pub $home/.ssh/authorized_keys
+COPY ./.ssh-lead/id_rsa $home/.ssh/id_rsa
 COPY ./.ssh-lead/id_rsa.pub /root/.ssh/authorized_keys
+COPY ./.ssh-lead/id_rsa /root/.ssh/id_rsa
+
 RUN chown -R $username:$username $home/.ssh/ && \
     chown -R $username:$username $home/ && \
     chmod 700 $home/.ssh && \
