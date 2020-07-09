@@ -25,6 +25,10 @@ ListenAddress 0.0.0.0
 # Logging
 #SyslogFacility AUTH
 #LogLevel INFO
+SyslogFacility AUTH
+SyslogFacility AUTHPRIV
+LogLevel INFO
+
 
 # Authentication:
 
