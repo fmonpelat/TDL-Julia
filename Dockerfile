@@ -43,7 +43,8 @@ COPY ./.ssh-lead/id_rsa.pub /root/.ssh/authorized_keys
 RUN chown -R $username:$username $home/.ssh/ && \
     chown -R $username:$username $home/ && \
     chmod 700 $home/.ssh && \
-    chmod 600 $home/.ssh/authorized_keys
+    chmod 600 $home/.ssh/authorized_keys && \
+    chmod 600 $home/.ssh/id_rsa
     
 # Working directory
 WORKDIR /home/montecarlo/workdir
