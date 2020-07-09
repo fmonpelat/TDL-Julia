@@ -39,12 +39,19 @@ RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 # copy of ssh keys
 RUN mkdir $home/.ssh
 COPY ./.ssh-lead/id_rsa.pub $home/.ssh/authorized_keys
+COPY ./.ssh-lead/id_rsa $home/.ssh/id_rsa
 COPY ./.ssh-lead/id_rsa.pub /root/.ssh/authorized_keys
-RUN chown $username:$username $home/.ssh/authorized_keys && \
+COPY ./.ssh-lead/id_rsa /root/.ssh/id_rsa
+
+RUN chown -R $username:$username $home/.ssh/ && \
+    chown -R $username:$username $home/ && \
+    chmod 600 /root/.ssh/id_rsa && \
+    chmod 700 $home/.ssh && \
     chmod 600 $home/.ssh/authorized_keys && \
-    chmod 700 /root/.ssh && \
-    chmod 600 /root/.ssh/authorized_keys && \
-    chmod 600 /root/.ssh/id_rsa
+    chmod 600 $home/.ssh/id_rsa    
+    
+    
+   
 
 # Working directory
 WORKDIR /home/montecarlo/workdir
