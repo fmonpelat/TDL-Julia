@@ -7,6 +7,7 @@ services:
       networks:
         - backend
       hostname: worker_1
+      restart: always
       volumes:
         - "./workdir:/home/montecarlo/workdir"
 
@@ -17,6 +18,7 @@ services:
       networks:
         - backend
       hostname: worker_2
+      restart: always
       volumes:
         - "./workdir:/home/montecarlo/workdir"
 
@@ -27,6 +29,7 @@ services:
       networks:
         - backend
       hostname: worker_3
+      restart: always
       volumes:
         - "./workdir:/home/montecarlo/workdir"
 
@@ -37,6 +40,7 @@ services:
       networks:
         - backend
       hostname: worker_4
+      restart: always
       volumes:
         - "./workdir:/home/montecarlo/workdir"
 
@@ -50,6 +54,7 @@ services:
         - "2022:22"
         - "8088:8088"
       hostname: lead
+      restart: always
       depends_on:
         - worker_1
         - worker_2
