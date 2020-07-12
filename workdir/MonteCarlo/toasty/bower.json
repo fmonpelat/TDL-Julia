@@ -1,0 +1,25 @@
+{
+  "name": "babufrik",
+  "version": "0.1.2",
+  "homepage": "https://github.com/rubentd/toasty",
+  "description": "Show babu frik ho hoy",
+  "authors": [
+    "Facundo Monpelat"
+  ],
+  "keywords": [
+   "babu frik",
+   "Star Wars",
+   "Babu",
+   "frik"
+  ],
+  "main": [
+    "jquery.toasty.min.js",
+    "toasty.min.css"
+  ],
+  "license": "MIT",
+  "ignore": [
+  ],
+  "dependencies": {
+    "jquery": ">=1.5.0"
+  }
+}

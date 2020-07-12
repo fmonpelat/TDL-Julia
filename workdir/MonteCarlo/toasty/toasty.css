@@ -1,0 +1,41 @@
+.show-dan{
+	-webkit-animation:showToastyGuy 2s;
+	   -moz-animation:showToastyGuy 10s;
+	     -o-animation:showToastyGuy 10s;
+			animation:showToastyGuy 3s;
+
+}
+
+@-webkit-keyframes showToastyGuy 
+{
+	0% {bottom: -210px;}
+	20% {bottom: -100px;}
+	40% {bottom: 0;}
+	50% {bottom: 10;}
+	80% {bottom: -100px;}
+	100% {bottom: -210px;}
+}
+
+@-moz-keyframes showToastyGuy 
+{
+	0% {bottom: -200px;}
+	40% {bottom: 0;}
+	60% {bottom: 0;}
+	100% {bottom: -200px;}
+}
+
+@-o-keyframes showToastyGuy 
+{
+	0% {bottom: -200px;}
+	40% {bottom: 0;}
+	60% {bottom: 0;}
+	100% {bottom: -200px;}
+}
+
+@keyframes showToastyGuy 
+{
+	0% {bottom: -200px;}
+	40% {bottom: 0;}
+	60% {bottom: 0;}
+	100% {bottom: -200px;}
+}
