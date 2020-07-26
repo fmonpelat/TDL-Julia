@@ -60,10 +60,13 @@ WORKDIR /home/montecarlo/workdir
 EXPOSE 22 8080
 
 RUN pip3 install notebook
+RUN pip3 install jupyter-cjk-xelatex
 RUN mkdir $home/.jupyter && \
     printf "%s\n" "{" "\"NotebookApp\": {" "\"password\": \"sha1:c9183aadb531:e4e37efea59ae84f473e773c8ee4d733fc66075e\"" "} " "}" >> $home/.jupyter/jupyter_notebook_config.json
 
 RUN julia -e 'using Pkg;pkg"add IJulia;build IJulia; precompile";pkg"add Gadfly;build Gadfly; precompile";pkg"add GR";pkg"add PyCall";'
+RUN apt-get update && apt-get install -y texlive-xetex texlive-fonts-recommended texlive-generic-recommended
+RUN apt-get install -y pandoc
 
 RUN /etc/init.d/ssh start
 
