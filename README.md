@@ -15,17 +15,17 @@ Repositorio con el código de la presentación sobre Julia. Aquí se encontrará
 
 Presentaciones:
 
-[Presentación inicial y explicación del Método de Montecarlo](Presentación.pdf)
+- [Presentación inicial y explicación del Método de Montecarlo](Presentación.pdf)
 
 Notebooks por órden de aparición:
 
-[Sintáxis de Julia - Variables](workdir/Sintaxis/1_variables.ipynb)
-[Sintáxis de Julia - Estructura de datos](workdir/Sintaxis/2_estructura_de_datos.ipynb)
-[Sintáxis de Julia - Aplicación usos prácticos](workdir/Sintaxis/3_aplicacion_usos_practicos.ipynb)
-[Sintáxis de Julia - Plots](workdir/Sintaxis/4_plots_copados.ipynb)
-[Uso de python en Julia](workdir/uso_de_python_en_julia.ipynb)
-[Topología usada](workdir/procesamiento_distribuido_en_julia.ipynb)
-[Paralelización del cálculo de Pi](workdir/MonteCarlo/Presentacion Final.ipynb)
+- [Sintáxis de Julia - Variables](workdir/Sintaxis/1_variables.ipynb)
+- [Sintáxis de Julia - Estructura de datos](workdir/Sintaxis/2_estructura_de_datos.ipynb)
+- [Sintáxis de Julia - Aplicación usos prácticos](workdir/Sintaxis/3_aplicacion_usos_practicos.ipynb)
+- [Sintáxis de Julia - Plots](workdir/Sintaxis/4_plots_copados.ipynb)
+- [Uso de python en Julia](workdir/uso_de_python_en_julia.ipynb)
+- [Topología usada](workdir/procesamiento_distribuido_en_julia.ipynb)
+- [Paralelización del cálculo de Pi](workdir/MonteCarlo/Presentacion%20Final.ipynb)
 
 
 # Docker
