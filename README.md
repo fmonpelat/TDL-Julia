@@ -7,11 +7,13 @@
 
 # Proyecto Integrador
 Lenguaje: Julia
+
 Problema práctico: Cálculo de pi mediante el método de Montecarlo
 
 # Introduccion
 
 Repositorio con el código de la presentación sobre Julia. Aquí se encontrará el código usado en los notebooks de la presentación y la configuración de los containers para preparar el ambiente de ejecución.
+Se deja como prueba el metodo de montecarlo para calcular integrales en el Notebook de paralelizacion.
 
 Presentaciones:
 
@@ -42,8 +44,8 @@ Se precisa tener instalado docker.
 Construir y dejar en background los containers
 ```docker-compose -f docker-compose.yml up --build -d```
 
-Acceso al nodo coordinador con acceso a la terminal:
-```ssh -p 2022 -o "UserKnownHostsFile=/dev/null" -o "StrictHostKeyChecking=no" root@localhost```
+Acceso al nodo coordinador:
+``` $ docker exec -it <CONTAINER ID> /bin/bash ```
 
 Acceso a Jupyter:
 
@@ -52,8 +54,8 @@ http://localhost:8088
 Password: 123456
 
 
-### Credenciales del container
+### Credenciales de los containers
 
-Usuario:root Contraseña:123456
+Usuario: root Contraseña: 123456
 
-Usuario:montecarlo (Se accede a los workers por publickey)
+Usuario:montecarlo (Se accede a los workers desde lead por publickey ya configurada)
